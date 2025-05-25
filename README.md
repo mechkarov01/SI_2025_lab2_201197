@@ -7,7 +7,7 @@
 Цикломатската комплексност на овој код е 10, истата ја добив преку формулата P+1, каде што P е бројот на предикатни јазли. Во случајoв P=9, па цикломатската комплексност изнесува 10.
 
 
-Тест случаи според критериумот Every statement:
+********************Тест случаи според критериумот Every statement:***********************
 
 
 Test Case 1: Null allItems
@@ -53,6 +53,68 @@ This ensures that the function throws an exception when the card number contains
 
 
 The minimum number of test cases required to achieve 'Every Statement' coverage is 6.
+
+
+********************Тест случаи според критериумот Multiple Condition:********************
+
+
+Test Case 1: Price > 300, Discount > 0, Quantity > 10
+Input: allItems = [Item(name = "Item1", price = 350, discount = 0.1, quantity = 12)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated with a discount. The condition is satisfied.
+This test ensures the OR condition is satisfied.
+
+
+Test Case 2: Price > 300, Discount > 0, Quantity <= 10
+Input: allItems = [Item(name = "Item1", price = 350, discount = 0.1, quantity = 5)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated with a discount. The condition is satisfied.
+This tests the case where Price > 300 and Discount > 0 but Quantity <= 10, ensuring the OR condition is satisfied because two out of the three conditions are True.
+
+
+Test Case 3: Price > 300, Discount <= 0, Quantity > 10
+Input: allItems = [Item(name = "Item1", price = 400, discount = 0, quantity = 11)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated without a discount but with the correct price and quantity. The condition is satisfied.
+This tests the case where Price > 300 and Quantity > 10 but Discount <= 0, ensuring the OR condition is satisfied.
+
+
+Test Case 4: Price > 300, Discount <= 0, Quantity <= 10
+Input: allItems = [Item(name = "Item1", price = 400, discount = 0, quantity = 2)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated without a discount. The condition is satisfied.
+This tests the case where Price > 300 but both Discount <= 0 and Quantity <= 10, ensuring the OR condition is satisfied because the first condition is True.
+
+
+Test Case 5: Price <= 300, Discount > 0, Quantity > 10
+Input: allItems = [Item(name = "Item1", price = 200, discount = 0.1, quantity = 11)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated with a discount. The condition is satisfied.
+This tests the case where Discount > 0 and Quantity > 10, ensuring the OR condition is satisfied because two out of the three conditions are True.
+
+
+Test Case 6: Price <= 300, Discount > 0, Quantity <= 10
+Input: allItems = [Item(name = "Item1", price = 200, discount = 0.1, quantity = 2)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated with a discount. The condition is satisfied.
+This tests the case where Discount > 0 but both Price <= 300 and Quantity <= 10, ensuring the OR condition is satisfied.
+
+
+Test Case 7: Price <= 300, Discount <= 0, Quantity > 10
+Input: allItems = [Item(name = "Item1", price = 200, discount = 0, quantity = 12)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated without a discount. The condition is satisfied.
+This tests the case where Quantity > 10 but both Price <= 300 and Discount <= 0, ensuring the OR condition is satisfied.
+
+
+Test Case 8: Price <= 300, Discount <= 0, Quantity <= 10
+Input: allItems = [Item(name = "Item1", price = 200, discount = 0, quantity = 2)]
+Input: cardNumber = "123"
+Expected Output: The sum is calculated without a discount. The condition is NOT satisfied.
+This tests the case where all three conditions are False, ensuring the OR condition is not satisfied.
+
+
+The minimum number of test cases required to achieve 'Multiple Condition' coverage is 8.
 
 
 
